@@ -1,16 +1,160 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>سایت من</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-    h1 { color: #4CAF50; }
-    p { font-size: 18px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتفولیو حرفه‌ای من</title>
+    <!-- اضافه کردن فونت وزیر -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            text-align: center;
+        }
+
+        header h1 { font-size: 3.5rem; margin-bottom: 0; background: linear-gradient(to right, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Container */
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        .section-title { font-size: 2rem; border-right: 5px solid var(--primary-color); padding-right: 15px; margin-bottom: 40px; }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: var(--card-bg);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(40%); }
+
+        .overlay {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: 0.3s;
+            text-align: center;
+            width: 80%;
+        }
+
+        .gallery-item:hover .overlay { opacity: 1; }
+
+        /* Contact Form */
+        .contact-section { background: var(--card-bg); padding: 40px; border-radius: 20px; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            font-family: 'Vazirmatn';
+        }
+        button {
+            padding: 15px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #fff; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 40px; color: #64748b; }
+    </style>
 </head>
 <body>
-  <h1>سلام! 👋</h1>
-  <p>این اولین سایت من روی GitHub Pages است.</p>
+
+    <header>
+        <h1>[نام و نام خانوادگی]</h1>
+        <p style="font-size: 1.5rem; color: #94a3b8;">توسعه‌دهنده فرانت‌اند و طراح رابط کاربری</p>
+    </header>
+
+    <div class="container" id="work">
+        <h2 class="section-title">نمونه‌کارها</h2>
+        <div class="gallery">
+            <!-- آیتم اول گالری -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="پروژه 1">
+                <div class="overlay">
+                    <h3>اپلیکیشن موبایل</h3>
+                    <p>طراحی رابط کاربری سیستم مالی</p>
+                </div>
+            </div>
+            <!-- آیتم دوم گالری -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="پروژه 2">
+                <div class="overlay">
+                    <h3>وب‌سایت شرکتی</h3>
+                    <p>پیاده‌سازی با React و Tailwind</p>
+                </div>
+            </div>
+            <!-- آیتم سوم گالری -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="پروژه 3">
+                <div class="overlay">
+                    <h3>فروشگاه آنلاین</h3>
+                    <p>طراحی کامل تجربه کاربری</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2 class="section-title">ارسال پیام</h2>
+        <div class="contact-section">
+            <!-- جایگزینی "your@email.com" با ایمیل واقعی خودت -->
+            <form action="https://formspree.io/f/your-id" method="POST">
+                <input type="text" name="name" placeholder="نام شما" required>
+                <input type="email" name="_replyto" placeholder="ایمیل شما" required>
+                <textarea name="message" rows="5" placeholder="پیام شما..." required></textarea>
+                <button type="submit">ارسال پیام به من</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>ساخته شده با ⚡ در سال ۲۰۲۶</p>
+    </footer>
+
 </body>
 </html>
